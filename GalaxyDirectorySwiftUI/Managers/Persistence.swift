@@ -15,7 +15,12 @@ struct PersistenceController {
         let viewContext = result.container.viewContext
         for i in 0..<10 {
             let person = Person(context: viewContext)
-            person.firstName = "Person \(i)"
+            person.firstName = "Luke"
+            person.lastName = "Skywalker"
+            person.birthdate = Date()
+            person.profilePicture = "https://edge.ldscdn.org/mobile/interview/07.png"
+            person.forceSensitive = true
+            person.affiliation = "JEDI"
         }
         do {
             try viewContext.save()

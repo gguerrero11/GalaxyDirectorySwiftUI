@@ -23,7 +23,7 @@ struct ContentView: View {
                     NavigationLink(
                         destination: Text(person.firstName!),
                         label: {
-                            Text(person.firstName!)
+                            PersonRow(person: person)
                         })
                 }
             }
