@@ -13,9 +13,9 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+        for i in 0..<10 {
+            let person = Person(context: viewContext)
+            person.firstName = "Person \(i)"
         }
         do {
             try viewContext.save()
@@ -51,5 +51,18 @@ struct PersistenceController {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+        container.viewContext.automaticallyMergesChangesFromParent = true
+    }
+
+    func personsAreEmpty(completion: ((Result<Bool, Error>) -> Void)) {
+        let context = container.viewContext
+        let fetchRequest = NSFetchRequest<Person>(entityName: "Person")
+
+        do {
+            let empty = try context.fetch(fetchRequest).isEmpty
+            completion(.success(empty))
+        } catch {
+            completion(.failure(error))
+        }
     }
 }
