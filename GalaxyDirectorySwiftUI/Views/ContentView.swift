@@ -20,14 +20,15 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(persons) { person in
-//                    NavigationLink {
-                        // Detail View
-//                    } label: {
-                        Text(person.firstName!)
-//                    }
+                    NavigationLink(
+                        destination: Text(person.firstName!),
+                        label: {
+                            Text(person.firstName!)
+                        })
                 }
-            }.onAppear(perform: DirectoryManager.shared.fetchDirectoryIfNeeded)
-            Text("Select an item")
+            }
+            .onAppear(perform: DirectoryManager.shared.fetchDirectoryIfNeeded)
+            .navigationTitle("Select a person")
         }
     }
 }

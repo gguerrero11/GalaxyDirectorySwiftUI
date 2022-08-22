@@ -61,12 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				00ABF97F28B41A2000F0389F /* GalaxyDirectorySwiftUIApp.swift */,
-				00ABF98128B41A2000F0389F /* ContentView.swift */,
-				00ABF99528B41AB300F0389F /* PersonRow.swift */,
+				00ABF99A28B424BA00F0389F /* Views */,
+				00ABF99B28B424D900F0389F /* Managers */,
 				00ABF98328B41A2300F0389F /* Assets.xcassets */,
-				00ABF98828B41A2300F0389F /* Persistence.swift */,
-				00ABF99328B41AAE00F0389F /* DirectoryManager.swift */,
-				00ABF99728B41ACC00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld */,
 				00ABF98D28B41A2300F0389F /* Info.plist */,
 				00ABF98528B41A2300F0389F /* Preview Content */,
 			);
@@ -79,6 +76,25 @@
 				00ABF98628B41A2300F0389F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		00ABF99A28B424BA00F0389F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00ABF98128B41A2000F0389F /* ContentView.swift */,
+				00ABF99528B41AB300F0389F /* PersonRow.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		00ABF99B28B424D900F0389F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				00ABF99728B41ACC00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld */,
+				00ABF98828B41A2300F0389F /* Persistence.swift */,
+				00ABF99328B41AAE00F0389F /* DirectoryManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
