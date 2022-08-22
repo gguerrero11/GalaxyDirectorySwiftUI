@@ -14,7 +14,8 @@
 		00ABF98928B41A2300F0389F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABF98828B41A2300F0389F /* Persistence.swift */; };
 		00ABF99428B41AAE00F0389F /* DirectoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABF99328B41AAE00F0389F /* DirectoryManager.swift */; };
 		00ABF99628B41AB400F0389F /* PersonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABF99528B41AB300F0389F /* PersonRow.swift */; };
-		00ABF99928B41ACC00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00ABF99728B41ACC00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld */; };
+		00ABF99F28B42B2900F0389F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABF99E28B42B2900F0389F /* ImageService.swift */; };
+		00ABF9A228B42CFD00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00ABF9A028B42CFD00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,8 @@
 		00ABF98D28B41A2300F0389F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00ABF99328B41AAE00F0389F /* DirectoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryManager.swift; sourceTree = "<group>"; };
 		00ABF99528B41AB300F0389F /* PersonRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonRow.swift; sourceTree = "<group>"; };
-		00ABF99828B41ACC00F0389F /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
+		00ABF99E28B42B2900F0389F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		00ABF9A128B42CFD00F0389F /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +65,8 @@
 				00ABF97F28B41A2000F0389F /* GalaxyDirectorySwiftUIApp.swift */,
 				00ABF99A28B424BA00F0389F /* Views */,
 				00ABF99B28B424D900F0389F /* Managers */,
-				00ABF98328B41A2300F0389F /* Assets.xcassets */,
+				00ABF99C28B42A7700F0389F /* Model */,
+				00ABF99D28B42A7F00F0389F /* Resources */,
 				00ABF98D28B41A2300F0389F /* Info.plist */,
 				00ABF98528B41A2300F0389F /* Preview Content */,
 			);
@@ -90,11 +93,27 @@
 		00ABF99B28B424D900F0389F /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				00ABF99728B41ACC00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld */,
 				00ABF98828B41A2300F0389F /* Persistence.swift */,
 				00ABF99328B41AAE00F0389F /* DirectoryManager.swift */,
+				00ABF99E28B42B2900F0389F /* ImageService.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		00ABF99C28B42A7700F0389F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				00ABF9A028B42CFD00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00ABF99D28B42A7F00F0389F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00ABF98328B41A2300F0389F /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,11 +186,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				00ABF98928B41A2300F0389F /* Persistence.swift in Sources */,
-				00ABF99928B41ACC00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld in Sources */,
 				00ABF99628B41AB400F0389F /* PersonRow.swift in Sources */,
 				00ABF98228B41A2000F0389F /* ContentView.swift in Sources */,
 				00ABF99428B41AAE00F0389F /* DirectoryManager.swift in Sources */,
 				00ABF98028B41A2000F0389F /* GalaxyDirectorySwiftUIApp.swift in Sources */,
+				00ABF9A228B42CFD00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld in Sources */,
+				00ABF99F28B42B2900F0389F /* ImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,12 +382,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		00ABF99728B41ACC00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld */ = {
+		00ABF9A028B42CFD00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				00ABF99828B41ACC00F0389F /* Shared.xcdatamodel */,
+				00ABF9A128B42CFD00F0389F /* Shared.xcdatamodel */,
 			);
-			currentVersion = 00ABF99828B41ACC00F0389F /* Shared.xcdatamodel */;
+			currentVersion = 00ABF9A128B42CFD00F0389F /* Shared.xcdatamodel */;
 			path = GalaxyDirectorySwiftUI.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

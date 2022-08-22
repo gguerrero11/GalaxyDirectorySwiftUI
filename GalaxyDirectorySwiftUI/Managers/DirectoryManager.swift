@@ -50,23 +50,20 @@ class DirectoryManager {
             if let jsonResult = try? JSONSerialization.jsonObject(with: data!, options: []) {
                 if let json = jsonResult as? [String:[[String:Any]]] {
                     guard let dictArray = json["individuals"] else { return }
-
+                    for dict in dictArray {
+                        let person = Person(context: viewContext)
+                        person.id = dict["id"] as? Int64 ?? 0
+                        person.firstName = dict["firstName"] as? String
+                        person.lastName = dict["lastName"] as? String
+                        person.birthdate = dict["birthdate"] as? Date
+                        person.profilePicture = dict["profilePicture"] as? String
+                        person.forceSensitive = dict["forceSensitive"] as? Bool ?? false
+                        person.affiliation = dict["affiliation"] as? String
+                    }
                     DispatchQueue.main.async {
-                        for dict in dictArray {
-                            let person = Person(context: viewContext)
-                            person.id = dict["id"] as? Int64 ?? 0
-                            person.firstName = dict["firstName"] as? String
-                            person.lastName = dict["lastName"] as? String
-                            person.birthdate = dict["birthdate"] as? Date
-                            person.profilePicture = dict["profilePicture"] as? String
-                            person.forceSensitive = dict["forceSensitive"] as? Bool ?? false
-                            person.affiliation = dict["affiliation"] as? String
-                        }
                         do {
                             try viewContext.save()
                         } catch {
-                            // Replace this implementation with code to handle the error appropriately.
-                            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                             let nsError = error as NSError
                             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                         }

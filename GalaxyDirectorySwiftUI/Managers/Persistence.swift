@@ -60,11 +60,18 @@ struct PersistenceController {
     }
 
     func personsAreEmpty(completion: ((Result<Bool, Error>) -> Void)) {
-        let context = container.viewContext
-        let fetchRequest = NSFetchRequest<Person>(entityName: "Person")
+        let request = NSFetchRequest<Person>(entityName: "Person")
+        checkStore(request: request, completion: completion)
+    }
 
+    func imageExists(completion: ((Result<Bool, Error>) -> Void)) {
+        let request = NSFetchRequest<ProfileImage>(entityName: "ProfileImage")
+        checkStore(request: request, completion: completion)
+    }
+
+    func checkStore<T>(request: NSFetchRequest<T>, completion: (Result<Bool, Error>) -> Void) {
         do {
-            let empty = try context.fetch(fetchRequest).isEmpty
+            let empty = try container.viewContext.fetch(request).isEmpty
             completion(.success(empty))
         } catch {
             completion(.failure(error))
