@@ -25,7 +25,7 @@ class DirectoryManager {
                 guard empty else { return }
                 fetchDirectory()
             case .failure(let error):
-                print("Error check store \(error)")
+                print("Error checking store \(error)")
             }
         }
     }

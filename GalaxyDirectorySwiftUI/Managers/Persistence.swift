@@ -64,9 +64,14 @@ struct PersistenceController {
         checkStore(request: request, completion: completion)
     }
 
-    func imageExists(completion: ((Result<Bool, Error>) -> Void)) {
+    func fetchImageFromStore(for id: Int, completion: ((Result<ProfileImage?, Error>) -> Void)) {
         let request = NSFetchRequest<ProfileImage>(entityName: "ProfileImage")
-        checkStore(request: request, completion: completion)
+        do {
+            let image = try container.viewContext.fetch(request)
+            completion(.success(image.first { $0.id == id }))
+        } catch {
+            completion(.failure(error))
+        }
     }
 
     func checkStore<T>(request: NSFetchRequest<T>, completion: (Result<Bool, Error>) -> Void) {
