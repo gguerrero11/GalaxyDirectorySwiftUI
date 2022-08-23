@@ -12,7 +12,7 @@ struct PersonRow: View {
 
     var body: some View {
         HStack {
-            PersonImage(imageService: ImageService.shared, person: person)
+            PersonImage(person: person, imageService: ImageService.shared, image: Image("person"))
                 .frame(width: 70, height: 70)
             person.firstName.map(Text.init)
             person.lastName.map(Text.init)

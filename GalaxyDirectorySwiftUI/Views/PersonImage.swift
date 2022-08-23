@@ -8,18 +8,21 @@
 import SwiftUI
 
 struct PersonImage: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    @StateObject var imageService: ImageService
-
     var person: Person
 
+    @Environment(\.managedObjectContext) private var viewContext
+    @StateObject var imageService: ImageService
+    @State var image: Image
+
     var body: some View {
-        imageService.getImage(for: person)
+        image
             .resizable()
-            .aspectRatio(contentMode: .fit)
+            .aspectRatio(contentMode: .fill)
             .clipShape(Circle())
             .onAppear(perform: {
-                imageService.loadImage(for: person)
+                imageService.loadImage(for: person) { image in
+                    self.image = image
+                }
             })
     }
 }
@@ -27,6 +30,6 @@ struct PersonImage: View {
 struct PersonImage_Previews: PreviewProvider {
     static var previews: some View {
         let context = PersistenceController.shared.container.viewContext
-        PersonImage(imageService: ImageService.shared, person: Person(context: context))
+        PersonImage(person: Person(context: context), imageService: ImageService.shared, image: Image("person"))
     }
 }

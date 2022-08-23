@@ -14,15 +14,8 @@ class ImageService: ObservableObject {
     let requestURL = "https://edge.ldscdn.org/mobile/interview/directory"
     let session = URLSession.shared
 
-    var data = Date()
-
-    private var image = Image("person")
-
-    func getImage(for person: Person) -> Image {
-        return image
-    }
-
-    func loadImage(for person: Person) {
+    /// Loads image from store, if it isn't found, then it will fetch
+    func loadImage(for person: Person, completion: ((Image) -> Void)? = nil) {
         let persistenceController = PersistenceController.shared
         persistenceController.fetchImageFromStore(for: Int(person.id)) { result in
             DispatchQueue.main.async {
@@ -32,19 +25,18 @@ class ImageService: ObservableObject {
             switch result {
             case .success(let image):
                 guard let imageData = image?.storedImage,
-                      let image = UIImage(data: imageData) else {
-                    fetchImage(for: person)
+                      let uiImage = UIImage(data: imageData) else {
+                    fetchImage(for: person, completion: completion)
                     return
                 }
-                self.image = Image(uiImage: image)
+                completion?(Image(uiImage: uiImage))
             case .failure(let error):
                 print("Error checking store for image\(error)")
             }
-
-
         }
     }
 
+    /// Fetches image from url and saves it's data into store with associated id
     private func fetchImage(for person: Person, completion: ((Image) -> Void)? = nil) {
         guard let profilePicture = person.profilePicture,
               let imageURL = URL(string: profilePicture) else {
@@ -67,7 +59,7 @@ class ImageService: ObservableObject {
 
             if let uiImage = UIImage(data: data) {
                 DispatchQueue.main.async {
-                    self.image = Image(uiImage: uiImage)
+                    completion?(Image(uiImage: uiImage))
                 }
             }
         }
