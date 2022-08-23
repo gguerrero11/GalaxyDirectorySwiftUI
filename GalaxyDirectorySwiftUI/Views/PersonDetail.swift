@@ -11,22 +11,48 @@ struct PersonDetail: View {
     var person: Person
 
     var body: some View {
-        VStack {
-//            Text(person.affiliation!)
-//            person.affiliation.map(Text.init)
-//                font(.headline)
+        HStack {
+            Spacer()
 
-            PersonImage(person: person, imageService: ImageService.shared, image: Image("photo"))
-                .frame(width: 300, height: 300)
+            VStack {
+                HStack{
+                    Text(person.firstName ?? "")
+                    Text(person.lastName ?? "")
+                        .bold()
+                }
+                .font(.largeTitle)
 
-//            HStack{
-//                person.firstName.map(Text.init)
-//                person.lastName.map(Text.init)
-//            }
-//
-//            person.birthdate.map { date in
-//                Text(date, formatter: itemFormatter)
-//            }
+                PersonImage(person: person, imageService: ImageService.shared, image: Image("photo"))
+                    .frame(width: 300, height: 300)
+
+                Text(person.affiliation ?? "Unknown")
+                    .font(.title)
+
+                Divider()
+
+                VStack {
+                    Group {
+                        HStack{
+                            Text("Birthdate: ")
+                            if let date = person.birthdate {
+                                Text(date, formatter: itemFormatter)
+                            } else {
+                                Text("Unknown")
+                            }
+                            Spacer()
+                        }
+
+                        HStack{
+                            Text("Force Sensitive: ")
+                            Text(person.forceSensitive ? "Yes" : "No")
+                            Spacer()
+                        }
+                    }
+                }
+
+            }
+
+            Spacer()
         }
     }
 }

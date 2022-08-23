@@ -13,15 +13,25 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for i in 0..<1 {
-            let person = Person(context: viewContext)
-            person.firstName = "Luke"
-            person.lastName = "Skywalker"
-            person.birthdate = Date()
-            person.profilePicture = "https://edge.ldscdn.org/mobile/interview/07.png"
-            person.forceSensitive = true
-            person.affiliation = "JEDI"
-        }
+
+        let person = Person(context: viewContext)
+        person.id = 1
+        person.firstName = "Luke"
+        person.lastName = "Skywalker"
+        person.birthdate = Date()
+        person.profilePicture = "https://edge.ldscdn.org/mobile/interview/07.png"
+        person.forceSensitive = true
+        person.affiliation = "JEDI"
+
+        let person2 = Person(context: viewContext)
+        person2.id = 8
+        person2.firstName = "Darth"
+        person2.lastName = "Vader"
+        person2.birthdate = Date()
+        person2.profilePicture = "https://edge.ldscdn.org/mobile/interview/02.jpg"
+        person2.forceSensitive = true
+        person2.affiliation = "SITH"
+
         do {
             try viewContext.save()
         } catch {
