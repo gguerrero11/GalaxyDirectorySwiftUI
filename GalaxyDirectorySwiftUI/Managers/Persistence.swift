@@ -13,7 +13,7 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for i in 0..<10 {
+        for i in 0..<1 {
             let person = Person(context: viewContext)
             person.firstName = "Luke"
             person.lastName = "Skywalker"

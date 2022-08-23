@@ -14,8 +14,8 @@ struct PersonRow: View {
         HStack {
             PersonImage(person: person, imageService: ImageService.shared, image: Image("person"))
                 .frame(width: 70, height: 70)
-            person.firstName.map(Text.init)
-            person.lastName.map(Text.init)
+            Text(person.firstName ?? "")
+            Text(person.lastName ?? "")
 
             Spacer()
         }
@@ -24,7 +24,7 @@ struct PersonRow: View {
 
 struct PersonRow_Previews: PreviewProvider {
     static var previews: some View {
-        let context = PersistenceController.shared.container.viewContext
+        let context = PersistenceController.preview.container.viewContext
         PersonRow(person: Person(context: context))
             .previewLayout(.fixed(width: 300, height: 70))
     }
