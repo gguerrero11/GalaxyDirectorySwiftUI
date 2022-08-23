@@ -16,6 +16,7 @@
 		00ABF99628B41AB400F0389F /* PersonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABF99528B41AB300F0389F /* PersonRow.swift */; };
 		00ABF99F28B42B2900F0389F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABF99E28B42B2900F0389F /* ImageService.swift */; };
 		00ABF9A228B42CFD00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00ABF9A028B42CFD00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld */; };
+		00ABF9A628B436E200F0389F /* PersonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABF9A528B436E200F0389F /* PersonImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		00ABF99528B41AB300F0389F /* PersonRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonRow.swift; sourceTree = "<group>"; };
 		00ABF99E28B42B2900F0389F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		00ABF9A128B42CFD00F0389F /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
+		00ABF9A528B436E200F0389F /* PersonImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				00ABF98128B41A2000F0389F /* ContentView.swift */,
 				00ABF99528B41AB300F0389F /* PersonRow.swift */,
+				00ABF9A528B436E200F0389F /* PersonImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				00ABF99428B41AAE00F0389F /* DirectoryManager.swift in Sources */,
 				00ABF98028B41A2000F0389F /* GalaxyDirectorySwiftUIApp.swift in Sources */,
 				00ABF9A228B42CFD00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld in Sources */,
+				00ABF9A628B436E200F0389F /* PersonImage.swift in Sources */,
 				00ABF99F28B42B2900F0389F /* ImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

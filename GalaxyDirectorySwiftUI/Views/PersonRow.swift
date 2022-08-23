@@ -12,9 +12,8 @@ struct PersonRow: View {
 
     var body: some View {
         HStack {
-            Image(systemName: "person")
-                .resizable()
-                .frame(width: 50, height: 50)
+            PersonImage(imageService: ImageService.shared, person: person)
+                .frame(width: 70, height: 70)
             person.firstName.map(Text.init)
             person.lastName.map(Text.init)
 
