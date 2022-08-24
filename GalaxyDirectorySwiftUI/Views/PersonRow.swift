@@ -24,8 +24,10 @@ struct PersonRow: View {
 
 struct PersonRow_Previews: PreviewProvider {
     static var previews: some View {
+
         let context = PersistenceController.preview.container.viewContext
         PersonRow(person: Person(context: context))
+            .environment(\.managedObjectContext, context)
             .previewLayout(.fixed(width: 300, height: 70))
     }
 }
