@@ -67,10 +67,8 @@ struct AffiliationImage: View {
     }
 }
 
-
-
 struct AffiliationImage_Previews: PreviewProvider {
     static var previews: some View {
-        AffiliationImage(affiliation: .unknown)
+        AffiliationImage(affiliation: .resistance)
     }
 }

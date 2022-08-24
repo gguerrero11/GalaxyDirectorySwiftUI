@@ -56,12 +56,12 @@ class DirectoryManager {
                         person.id = dict["id"] as? Int64 ?? 0
                         person.firstName = dict["firstName"] as? String
                         person.lastName = dict["lastName"] as? String
-
                         person.birthdate = self.formatDate(string: dict["birthdate"] as? String)
                         person.profilePicture = dict["profilePicture"] as? String
                         person.forceSensitive = dict["forceSensitive"] as? Bool ?? false
                         person.affiliation = (dict["affiliation"] as? String)?.replacingOccurrences(of: "_", with: " ")
                     }
+
                     DispatchQueue.main.async {
                         do {
                             try viewContext.save()
