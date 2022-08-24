@@ -8,6 +8,7 @@
 import CoreData
 import SwiftUI
 
+
 struct PersonList: View {
     @Environment(\.managedObjectContext) private var viewContext
 

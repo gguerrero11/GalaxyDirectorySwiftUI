@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct AffiliationImage: View {
 
     enum Affiliation {

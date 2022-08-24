@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 @main
 struct GalaxyDirectorySwiftUIApp: App {
     let persistenceController = PersistenceController.shared

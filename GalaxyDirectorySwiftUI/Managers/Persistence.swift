@@ -7,6 +7,7 @@
 
 import CoreData
 
+
 struct PersistenceController {
     static let shared = PersistenceController()
 
@@ -51,7 +52,7 @@ struct PersistenceController {
         }
     }
 
-    func checkStore<T>(request: NSFetchRequest<T>, completion: (Result<Bool, Error>) -> Void) {
+    private func checkStore<T>(request: NSFetchRequest<T>, completion: (Result<Bool, Error>) -> Void) {
         do {
             let empty = try container.viewContext.fetch(request).isEmpty
             completion(.success(empty))
@@ -60,6 +61,7 @@ struct PersistenceController {
         }
     }
 }
+
 
 extension PersistenceController {
 

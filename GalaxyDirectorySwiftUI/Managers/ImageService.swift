@@ -44,25 +44,15 @@ class ImageService: ObservableObject {
             return
         }
 
-        if let data = try? Data (contentsOf: imageURL) {
+        if let data = try? Data (contentsOf: imageURL),
+           let uiImage = UIImage(data: data) {
+
+            // Save compressed version
             let viewContext = PersistenceController.shared.container.viewContext
             let profileImage = ProfileImage(context: viewContext)
             profileImage.id = person.id
-
-            if let uiImage = UIImage(data: data) {
-                // Save compressed version
-                let compressed = uiImage.jpeg(.low)
-                profileImage.storedImage = compressed
-
-                // Update UI
-                guard let compressedData = compressed,
-                      let compressedUIImage = UIImage(data: compressedData) else {
-                    return
-                }
-                DispatchQueue.main.async {
-                    completion?(Image(uiImage: compressedUIImage))
-                }
-            }
+            let compressed = uiImage.jpeg(.low)
+            profileImage.storedImage = compressed
 
             do {
                 try viewContext.save()
@@ -70,9 +60,20 @@ class ImageService: ObservableObject {
                 let nsError = error as NSError
                 fatalError("Error saving image \(nsError), \(nsError.userInfo)")
             }
+
+            // Update UI with compressed version
+            guard let compressedData = compressed,
+                  let compressedUIImage = UIImage(data: compressedData) else {
+                return
+            }
+            DispatchQueue.main.async {
+                completion?(Image(uiImage: compressedUIImage))
+            }
+
         }
     }
 }
+
 
 extension UIImage {
     enum JPEGQuality: CGFloat {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct PersonImage: View {
     var person: Person
 

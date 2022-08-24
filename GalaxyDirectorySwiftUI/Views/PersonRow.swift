@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct PersonRow: View {
     var person: Person
 
