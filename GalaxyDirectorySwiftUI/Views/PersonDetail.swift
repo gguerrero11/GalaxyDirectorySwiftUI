@@ -24,6 +24,10 @@ struct PersonDetail: View {
 
                 PersonImage(person: person, imageService: ImageService.shared, image: Image("photo"))
                     .frame(width: 300, height: 300)
+                    .overlay(
+                        AffiliationImage(affiliation: AffiliationImage.Affiliation(affiliation: person.affiliation ?? ""))
+                            .offset(x: 100, y: 100)
+                    )
 
                 Text(person.affiliation ?? "Unknown")
                     .font(.title)

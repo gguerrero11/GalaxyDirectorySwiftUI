@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00A7F1A228B57E9000271F62 /* PersonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A7F1A128B57E9000271F62 /* PersonList.swift */; };
+		00A7F1A428B5CE9700271F62 /* AffiliationImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A7F1A328B5CE9700271F62 /* AffiliationImage.swift */; };
 		00ABF98028B41A2000F0389F /* GalaxyDirectorySwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABF97F28B41A2000F0389F /* GalaxyDirectorySwiftUIApp.swift */; };
 		00ABF98228B41A2000F0389F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABF98128B41A2000F0389F /* ContentView.swift */; };
 		00ABF98428B41A2300F0389F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00ABF98328B41A2300F0389F /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		00A7F1A128B57E9000271F62 /* PersonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonList.swift; sourceTree = "<group>"; };
+		00A7F1A328B5CE9700271F62 /* AffiliationImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliationImage.swift; sourceTree = "<group>"; };
 		00ABF97C28B41A2000F0389F /* GalaxyDirectorySwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalaxyDirectorySwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00ABF97F28B41A2000F0389F /* GalaxyDirectorySwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalaxyDirectorySwiftUIApp.swift; sourceTree = "<group>"; };
 		00ABF98128B41A2000F0389F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				00ABF99528B41AB300F0389F /* PersonRow.swift */,
 				00ABF9A528B436E200F0389F /* PersonImage.swift */,
 				00ABF9A728B5453200F0389F /* PersonDetail.swift */,
+				00A7F1A328B5CE9700271F62 /* AffiliationImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				00ABF98028B41A2000F0389F /* GalaxyDirectorySwiftUIApp.swift in Sources */,
 				00ABF9A228B42CFD00F0389F /* GalaxyDirectorySwiftUI.xcdatamodeld in Sources */,
 				00ABF9A628B436E200F0389F /* PersonImage.swift in Sources */,
+				00A7F1A428B5CE9700271F62 /* AffiliationImage.swift in Sources */,
 				00A7F1A228B57E9000271F62 /* PersonList.swift in Sources */,
 				00ABF99F28B42B2900F0389F /* ImageService.swift in Sources */,
 			);
