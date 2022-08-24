@@ -29,7 +29,7 @@ struct PersonImage: View {
 
 struct PersonImage_Previews: PreviewProvider {
     static var previews: some View {
-        let context = PersistenceController.shared.container.viewContext
+        let context = PersistenceController.preview.container.viewContext
         PersonImage(person: Person(context: context), imageService: ImageService.shared, image: Image("person"))
     }
 }

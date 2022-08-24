@@ -34,8 +34,8 @@ struct PersonDetail: View {
                     Group {
                         HStack{
                             Text("Birthdate: ")
-                            if let date = person.birthdate {
-                                Text(date, formatter: itemFormatter)
+                            if let birthdate = person.birthdate {
+                                Text(birthdate, formatter: itemFormatter)
                             } else {
                                 Text("Unknown")
                             }
@@ -60,7 +60,6 @@ struct PersonDetail: View {
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
-    formatter.timeStyle = .medium
     return formatter
 }()
 

@@ -13,8 +13,9 @@ class DirectoryManager {
 
     static let shared = DirectoryManager()
 
-    let requestURL = "https://edge.ldscdn.org/mobile/interview/directory"
-    let session = URLSession.shared
+    private let requestURL = "https://edge.ldscdn.org/mobile/interview/directory"
+    private let session = URLSession.shared
+    private let formatter = DateFormatter()
 
     func fetchDirectoryIfNeeded() {
         let persistenceController = PersistenceController.shared
@@ -55,10 +56,11 @@ class DirectoryManager {
                         person.id = dict["id"] as? Int64 ?? 0
                         person.firstName = dict["firstName"] as? String
                         person.lastName = dict["lastName"] as? String
-                        person.birthdate = dict["birthdate"] as? Date
+
+                        person.birthdate = self.formatDate(string: dict["birthdate"] as? String)
                         person.profilePicture = dict["profilePicture"] as? String
                         person.forceSensitive = dict["forceSensitive"] as? Bool ?? false
-                        person.affiliation = dict["affiliation"] as? String
+                        person.affiliation = (dict["affiliation"] as? String)?.replacingOccurrences(of: "_", with: " ")
                     }
                     DispatchQueue.main.async {
                         do {
@@ -73,4 +75,13 @@ class DirectoryManager {
         }
         task.resume()
     }
+
+    private func formatDate(string: String?) -> Date? {
+        guard let string = string else {
+            return .distantPast
+        }
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.date(from: string)
+    }
+
 }
